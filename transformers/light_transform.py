@@ -21,7 +21,13 @@ def fill_missing_values_with_median(df: DataFrame) -> DataFrame:
 
 # function to change all str columns to UPPER CASE
 def to_upper(df: DataFrame, *args, **kwargs) -> DataFrame:
-    return df.apply(lambda x: x.astype(str).str.upper())
+    """
+    filter out columns with dtypes == object, then Upper case them
+    """
+    filter_obj = df.dtypes[df.dtypes == object].index.to_list()
+    df[filter_obj] = df[filter_obj].apply(lambda x: x.astype(str).str.upper())
+
+    return df
 
 @transformer
 def transform_df(df: DataFrame, *args, **kwargs) -> DataFrame:

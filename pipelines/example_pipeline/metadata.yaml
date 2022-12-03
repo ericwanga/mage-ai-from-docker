@@ -15,8 +15,9 @@ blocks:
 - all_upstream_blocks_executed: true
   configuration: {}
   downstream_blocks:
-  - export_to_snowflake
-  - export_to_snowflake
+  - export_to_snowflake2
+  - histogram_for_export_to_snowflake2_1670022300340
+  - line_chart_for_export_to_snowflake2_1670022483211
   executor_config: null
   executor_type: local_python
   language: python
@@ -28,35 +29,105 @@ blocks:
   uuid: light_transform
 - all_upstream_blocks_executed: true
   configuration: {}
-  downstream_blocks:
-  - patient_river
-  executor_config: null
-  executor_type: local_python
-  language: python
-  name: export_to_snowflake
-  status: failed
-  type: data_exporter
-  upstream_blocks:
-  - light_transform
-  uuid: export_to_snowflake
-- all_upstream_blocks_executed: false
-  configuration:
-    data_provider: snowflake
-    data_provider_database: DEFAULT_DB
-    data_provider_profile: default
-    data_provider_schema: PUBLIC
-    export_write_policy: append
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
-  language: sql
-  name: patient river
+  language: python
+  name: cool bush
+  status: updated
+  type: scratchpad
+  upstream_blocks: []
+  uuid: cool_bush
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: patient pond
+  status: not_executed
+  type: scratchpad
+  upstream_blocks: []
+  uuid: patient_pond
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: cool tree
+  status: not_executed
+  type: scratchpad
+  upstream_blocks: []
+  uuid: cool_tree
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: ancient sunset
+  status: not_executed
+  type: scratchpad
+  upstream_blocks: []
+  uuid: ancient_sunset
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: export_to_snowflake2
   status: updated
   type: data_exporter
   upstream_blocks:
-  - export_to_snowflake
-  uuid: patient_river
+  - light_transform
+  uuid: export_to_snowflake2
 name: example_pipeline
 type: python
 uuid: example_pipeline
-widgets: []
+widgets:
+- all_upstream_blocks_executed: true
+  configuration:
+    buckets: '20'
+    chart_style: horizontal
+    chart_type: histogram
+    group_by:
+    - Population
+    metrics:
+    - aggregation: count_distinct
+      column: Population
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: histogram for export_to_snowflake2 1670022300340
+  status: executed
+  type: chart
+  upstream_blocks:
+  - light_transform
+  uuid: histogram_for_export_to_snowflake2_1670022300340
+- all_upstream_blocks_executed: true
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    group_by:
+    - CountryCode
+    metrics:
+    - aggregation: average
+      column: Population
+    width_percentage: '1'
+    x: x
+    y: y
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: line chart for export_to_snowflake2 1670022483211
+  status: executed
+  type: chart
+  upstream_blocks:
+  - light_transform
+  uuid: line_chart_for_export_to_snowflake2_1670022483211

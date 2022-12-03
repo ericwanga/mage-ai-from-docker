@@ -1,0 +1,29 @@
+
+
+============================== 2022-12-03 06:59:42.962876 | 539a3603-f279-4ead-8b66-538420b54d65 ==============================
+[0m06:59:42.962876 [info ] [MainThread]: Running with dbt=1.4.0-a1
+[0m06:59:42.962876 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\wanzy120_local\\mage-ai-from-docker\\dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'project_name': 'demo', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m06:59:42.963876 [debug] [MainThread]: Tracking: tracking
+[0m06:59:42.986794 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001715AD376A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001715AD37B20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001715AD37910>]}
+[0m06:59:42.987812 [debug] [MainThread]: Starter project path: C:\Users\wanzy120_local\AppData\Roaming\Python\Python39\site-packages\dbt\include\starter_project
+[0m07:11:34.193797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001715AD5E130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001715AD5E5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001715AD5E550>]}
+[0m07:11:34.194796 [debug] [MainThread]: Flushing usage events
+[0m07:11:35.301015 [error] [MainThread]: Encountered an error:
+
+[0m07:11:35.314347 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\wanzy120_local\AppData\Roaming\Python\Python39\site-packages\dbt\main.py", line 135, in main
+    results, succeeded = handle_and_check(args)
+  File "C:\Users\wanzy120_local\AppData\Roaming\Python\Python39\site-packages\dbt\main.py", line 198, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "C:\Users\wanzy120_local\AppData\Roaming\Python\Python39\site-packages\dbt\main.py", line 245, in run_from_args
+    results = task.run()
+  File "C:\Users\wanzy120_local\AppData\Roaming\Python\Python39\site-packages\dbt\task\init.py", line 304, in run
+    adapter = self.ask_for_adapter_choice()
+  File "C:\Users\wanzy120_local\AppData\Roaming\Python\Python39\site-packages\dbt\task\init.py", line 230, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\click\termui.py", line 166, in prompt
+    value = prompt_func(prompt)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\click\termui.py", line 149, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
